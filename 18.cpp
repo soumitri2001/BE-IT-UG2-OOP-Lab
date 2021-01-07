@@ -1,25 +1,49 @@
-#pragma GCC optimize(2)
-#pragma GCC optimize(3)
-#pragma GCC target("avx,avx2,fma")
-#pragma GCC optimize("Ofast,no-stack-protector,unroll-loops,fast-math,O3")
+/**
+ * Write a simple class that represents a class of geometrical points each of which has three coordinates. The class
+* should have appropriate constructor(s). Also add a m:!ember function distance() that calculates Euclidian
+* distance between two points. Now create two points, find the distance between them and print it.
+ */
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <math.h>
 using namespace std;
 
-typedef unsigned long long int ull;
-typedef long long ll;
-#define pb push_back
+class Point3D
+{
+private:
+    double x;
+    double y;
+    double z;
+
+public:
+    Point3D();
+    Point3D(double x, double y, double z);
+    static double distance(Point3D, Point3D);
+};
+
+Point3D::Point3D()
+{
+    this->x = 0.0;
+    this->y = 0.0;
+    this->z = 0.0;
+}
+
+Point3D::Point3D(double x, double y, double z)
+{
+    this->x = x;
+    this->y = y;
+    this->z = z;
+}
+
+double Point3D::distance(Point3D p1, Point3D p2)
+{
+    return sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2) + pow(p1.z - p2.z, 2));
+}
 
 int main()
 {
-#ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-#endif
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
-    //your code starts here
+    Point3D p1(3, 4, 5);
+    Point3D p2(7, 3, 10);
 
-    return 0;
+    cout << "distance = " << Point3D::distance(p1, p2) << "\n";
 }
