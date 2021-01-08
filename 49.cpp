@@ -48,7 +48,25 @@ Complex maximum(Complex c1, Complex c2)
 template <>
 string maximum(string s1, string s2)
 {
-    // TODO: lexicographical comparison to be implemented
+    int mx = -1;
+    for (int i = 0; i < min(s1.size(), s2.size()); i++)
+    {
+        if (s1[i] < s2[i])
+        {
+            mx = 1;
+            break;
+        }
+        else if (s1[i] > s2[i])
+        {
+            mx = 0;
+            break;
+        }
+    }
+    if (mx == -1)
+    {
+        mx = (s1.size() < s2.size()) ? 1 : 0;
+    }
+    return (mx == 1) ? s2 : s1;
 }
 
 int main()
@@ -60,4 +78,7 @@ int main()
     Complex c1(3, -4), c2(5, -2);
     Complex cmax = maximum(c1, c2);
     cmax.disp();
+
+    string s1 = "elephant", s2 = "aabcd";
+    cout << maximum(s1, s2) << "\n";
 }

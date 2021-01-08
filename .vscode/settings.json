@@ -7,5 +7,10 @@
         "array": "cpp",
         "string_view": "cpp",
         "iostream": "cpp"
-    }
+    },
+    "cSpell.words": [
+        "accs",
+        "cgpa",
+        "savac"
+    ]
 }
