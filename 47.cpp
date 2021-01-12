@@ -46,27 +46,16 @@ void Stack::push(int x)
 {
     if (top == size - 1)
         throw OverflowException();
-
     else
         buffer[++top] = x;
 }
-// catch (OverflowException ex)
-// {
-//     cout << "Stack has overflown !\n";
-// }
 
 int Stack::pop()
 {
     if (top == -1)
         throw UnderflowException();
-
     else
         return buffer[top--];
-
-    // catch (UnderflowException ex)
-    // {
-    //     cout << "Stack is already empty !\n";
-    // }
 }
 
 void Stack::disp()
