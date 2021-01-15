@@ -22,14 +22,8 @@ public:
         height = h;
         width = w;
     }
-    virtual float area()
-    {
-        return height * width;
-    }
-    virtual float perimeter()
-    {
-        return 2 * (height + width);
-    }
+    virtual float area() = 0;
+    virtual float perimeter() = 0;
 };
 
 class Circle : public Shape2D
@@ -58,6 +52,14 @@ public:
     {
         height = h;
         width = w;
+    }
+    float area()
+    {
+        return height * width;
+    }
+    float perimeter()
+    {
+        return 2 * (height + width);
     }
 };
 
